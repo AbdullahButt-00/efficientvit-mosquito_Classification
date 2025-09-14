@@ -1,0 +1,30 @@
+import torch
+from efficientvit.cls_model_zoo import create_efficientvit_cls_model
+
+def train_model(model_name, train_loader, num_classes, device, num_epochs=25, lr=1e-4):
+    model = create_efficientvit_cls_model(model_name, pretrained=False, num_classes=num_classes).to(device)
+    criterion = torch.nn.CrossEntropyLoss()
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+
+    for epoch in range(num_epochs):
+        model.train()
+        running_loss, correct, total = 0.0, 0, 0
+
+        for images, labels in train_loader:
+            images, labels = images.to(device), labels.to(device)
+
+            optimizer.zero_grad()
+            outputs = model(images)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
+
+            running_loss += loss.item()
+            _, predicted = torch.max(outputs, 1)
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
+
+        acc = 100 * correct / total
+        print(f"[{model_name}] Epoch {epoch+1}: Loss {running_loss:.4f}, Acc {acc:.2f}%")
+
+    return model
