@@ -53,10 +53,6 @@ python main_train.py
 python main_eval.py
 ```
 
-## 💡 Project Idea
-Mosquito-borne diseases like **dengue, malaria, and Zika** are major global health issues.  
-This project explores the use of **lightweight ViT models (EfficientViT)** for efficient mosquito species classification, enabling deployment in **resource-constrained environments** such as mobile devices.
-
 ## 📌 Requirements
 See [`requirements.txt`](requirements.txt).
 
