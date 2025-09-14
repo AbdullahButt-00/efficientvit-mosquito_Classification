@@ -26,13 +26,13 @@ efficientvit_mosquito/
 ├── requirements.txt          # Dependencies
 ```
 
-## 🚀 Features
+## Features
 - Modular dataloaders for multiple datasets  
 - Training & evaluation with EfficientViT  
 - Batch visualisation utilities  
 - Easy scaling to new datasets  
 
-## 📊 Datasets
+## Datasets
 The pipeline is designed to handle **4 mosquito datasets**, with paths configured in `configs/dataset_paths.py`.
 
 ## ⚙️ Installation
@@ -42,7 +42,7 @@ cd efficientvit_mosquito
 pip install -r requirements.txt
 ```
 
-## ▶️ Usage
+## Usage
 ### Training
 ```bash
 python main_train.py
@@ -61,6 +61,18 @@ This project explores the use of **lightweight ViT models (EfficientViT)** for e
 See [`requirements.txt`](requirements.txt).
 
 ---
+## 📊 Dataset Details
+
+| Dataset   | Classes | Train (Images per Class)                          | Test (Images per Class)                           | Training Images | Test Images | Total |
+|-----------|---------|--------------------------------------------------|--------------------------------------------------|----------------|-------------|-------|
+| Dataset_1 | 3       | aedes: 150, anopheles: 104, culex: 99            | aedes: 38, anopheles: 26, culex: 25              | 353            | 89          | 442   |
+| Dataset_2 | 3       | culex: 960, aedes: 720, anopheles: 432           | culex: 240, aedes: 180, anopheles: 108           | 2112           | 528         | 2640  |
+| Dataset_3 | 3       | anopheles: 400, culex: 400, aedes: 400           | anopheles: 400, culex: 400, aedes: 400           | 1200           | 1200        | 2400  |
+| Dataset_4 | 3       | culex: 1459, aedes: 1270, anopheles: 936         | culex: 665, aedes: 618, anopheles: 534           | 3665           | 1817        | 5482  |
+
+
+
 
 🔬 **Research Direction**: This repo can serve as a baseline for mosquito classification using **efficient vision transformers**.  
-🤝 Contributions are welcome!
+
+
